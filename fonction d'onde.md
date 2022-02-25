@@ -1,0 +1,2 @@
+# Fonction d'onde
+[[application]] $\Psi$ du [[type]] $\mathbb{R}^3 \times \mathbb{R} \to \mathbb{C}$ représentant la [[probabilité]] de présence d'une [[particule]] en fonction du temps $t$ et de la position $\vec{r}$.

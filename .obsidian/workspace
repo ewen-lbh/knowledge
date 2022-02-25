@@ -1,0 +1,105 @@
+{
+  "main": {
+    "id": "2b7a14b6fb7b5296",
+    "type": "split",
+    "children": [
+      {
+        "id": "a3795c2a226eafd8",
+        "type": "leaf",
+        "state": {
+          "type": "empty",
+          "state": {}
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6082e4e53a80c522",
+    "type": "split",
+    "children": [
+      {
+        "id": "de7f416fc345aae9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5a7f5d88493b9700",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "ac150d6d57139ff7",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "0903805d5ee0b123",
+    "type": "split",
+    "children": [
+      {
+        "id": "78220926d36915b4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "48543bd5fbf0b358",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          },
+          {
+            "id": "7f1aca699c0d2902",
+            "type": "leaf",
+            "state": {
+              "type": "graph-analysis",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "active": "a3795c2a226eafd8",
+  "lastOpenFiles": [
+    "combinaison linéaire.md",
+    "cardinal.md",
+    "autoadjoint.md",
+    "application linéaire.md",
+    "application.md",
+    "anneau.md",
+    "hyperplan.md",
+    "formes linéaires.md",
+    "écart type.md",
+    "endomorphisme.md"
+  ]
+}
