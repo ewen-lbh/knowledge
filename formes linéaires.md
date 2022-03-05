@@ -1,2 +1,2 @@
 # Formes linéaires
-Leur [[noyau]] est un [[hyperplan]] de [[dimension]] $\operatorname{dim} E - 1$
+Leur [[noyau]] est un [[hyperplan]] de [[dimension]] *dim E - 1*.
