@@ -8,7 +8,7 @@ L'algorithme se décompose en trois parties
 Permet de rendre la [[matrice]] [[triangulaire]] supérieure en annulant les [[coefficient|coefficients]] inférieurs à la [[diagonale]].
 
 - Pour chaque [[colonne]] $j$ exceptée la dernière
-	- On cherche le coefficient le plus grand en module dans ceux en dessous la diagonale (y compris celui de la diagonale). Ce coefficient est appelé *pivot*.
+	- On cherche le coefficient le [[maximum|plus grand]] en [[module]] dans ceux en dessous la diagonale (y compris celui de la diagonale). Ce coefficient est appelé *pivot*.
 	- On permute la [[ligne]] contenant ce coefficient avec celle de la diagonale
 	- On répercute les changement en [[permutation|permutant]] également les deux lignes sur le vecteur second membre
 	- Pour chaque coefficient $a_{ij}$ en dessous de la diagonale (sauf celui sur la diagonale)
