@@ -1,5 +1,5 @@
 # Tri fusion
-Algorithme de [[tri]]
+[[algorithme]] de [[tri]]
 
 ## Principe
 - On divise la [[liste]] en deux [[sous-listes]] de [[longueur]] égales ou presque (en scindant à l'indice $\left\lfloor \frac{\operatorname{len} l}{2} \right\rfloor$) 

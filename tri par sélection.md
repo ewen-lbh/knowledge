@@ -1,5 +1,5 @@
 # Tri par sélection
-Algorithme de [[tri]]
+[[algorithme]] de [[tri]]
 
 ## Principe
 - On sélectionne l'élément le plus petit et on le [[permutation|permute]] avec le premier élément de la [[liste]].

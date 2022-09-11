@@ -1,5 +1,5 @@
 # Tri pivot
-Algorithme de [[tri]]
+[[algorithme]] de [[tri]]
 
 Aussi appelé *Tri rapide* (*Quicksort* en anglais)
 
