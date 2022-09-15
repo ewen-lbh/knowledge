@@ -1,5 +1,5 @@
 # Tri par insertion
-Algorithme de [[tri]]
+[[algorithme]] de [[tri]]
 
 ## Principe
 On crée une nouvelle [[liste vide]] qui sera celle [[triée]]. Pour chaque élément de la [[liste]] originelle, on insère cet élément à sa position *dans la nouvelle liste* pour que celle-ci reste triée, en comparant les [[indice|indices]].

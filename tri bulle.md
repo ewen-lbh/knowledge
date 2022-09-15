@@ -1,5 +1,5 @@
 # Tri bulle
-Algorithme de [[tri]]
+[[algorithme]] de [[tri]]
 
 ## Principe
 - On [[comparaison|compare]] chaque élément au suivant et on les [[permutation|permute]] si besoin. 

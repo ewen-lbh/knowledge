@@ -1,5 +1,5 @@
 # Pivot de Gauss
-Algorithme de résolution d'un [[système de Cramer]].
+[[algorithme]] de résolution d'un [[système de Cramer]].
 
 ## Principe
 L'algorithme se décompose en trois parties
@@ -12,7 +12,7 @@ Permet de rendre la [[matrice]] [[triangulaire]] supérieure en annulant les [[c
 	- On permute la [[ligne]] contenant ce coefficient avec celle de la diagonale
 	- On répercute les changement en [[permutation|permutant]] également les deux lignes sur le vecteur second membre
 	- Pour chaque coefficient $a_{ij}$ en dessous de la diagonale (sauf celui sur la diagonale)
-		- On retire à la ligne $L_i$ un [[multiple]] de la ligne $L_j$ (qui contient donc le pivot) afin d'annuler cette ligne: $$L_i \leftarrow L_i - \frac{a_{ij}}{a_{jj}} L_j$$
+		- On [[soustraction|soustrait]] à la ligne $L_i$ un [[multiple]] de la ligne $L_j$ (qui contient donc le pivot) afin d'annuler cette ligne: $$L_i \leftarrow L_i - \frac{a_{ij}}{a_{jj}} L_j$$
 
 		- On répercute les chagements en effectuant la même [[transvection]] sur le vecteur second membre: $$b_i \leftarrow b_i - \frac{a_{ij}}{a_{jj}} b_j$$
 La matrice devient triangulaire supérieure.

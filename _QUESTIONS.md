@@ -1,0 +1,1 @@
+- Différence entre [[minimum local fort]] et [[minimum local faible]]: pour le faible, il peut y avoir d'autres minima dans la boule, mais pas dans le fort?
