@@ -1,3 +1,8 @@
+# Changement de variables
+**En probabilités**
+
+## Exemple
+
 $$
 \begin{align}
 P[Y=l^2] &= P[(X-2)^2=l^2] \\

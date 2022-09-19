@@ -1,4 +1,5 @@
 # Fonction caractéristique
+#PROBA 
 $$\phi_t(X) = \mathbb{E}(e^{itX})$$
 
 ## Propriétés

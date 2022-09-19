@@ -1,4 +1,6 @@
 # Densité de probabilité
+#PROBA
+
 [[fonction]] permettant la mesure de la [[probabilité]] d'un [[événement]] de la forme $P(X\in\Delta)$, avec $X$ une [[variable aléatoire]] suivant une [[loi de probabilité]] continue et $\Delta \subset X(\Omega)$. Cette fonction doit satisfaire la [[condition de normalisation]]: $\int_{X(\Omega)} p = 1$.
 
 ## Pour un couple

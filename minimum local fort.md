@@ -1,4 +1,5 @@
 # Minimum local fort
+#optimisation 
 
 Point $x^*$ tel que
 $$
