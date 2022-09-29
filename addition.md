@@ -6,7 +6,7 @@
 On définit l'addition par [[récurrence]], en [[composition|composant]] l'[[incrémentation]] $m$ fois, où $m$ est le deuxième [[argument]] de la fonction:
 
 $$
-\begin{cases}
++:\begin{cases}
 \mathbb{N} \times \mathbb{N} &\to \mathbb{N} \\
 (n, m) &\mapsto \operatorname{succ}^m n
 \end{cases}

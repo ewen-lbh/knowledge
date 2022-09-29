@@ -22,6 +22,6 @@ On a alors la propriété suivante pour $\operatorname{src} f \subset \mathbb{R}
 - Pour tout points $(a, b) \in (\operatorname{src} f)^2$: 
 	$f([a, b])$ est en dessous de la corde $[f(a), f(b)]$
 
-$$
+### Caractérisation par la [[matrice hessienne]].
 
-$$
+Si $\operatorname{tr} \nabla^2 f(x) \ge 0$, $f$ est convexe

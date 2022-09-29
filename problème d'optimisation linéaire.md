@@ -1,4 +1,5 @@
 # Problème d'optimisation linéaire
+#optimisation 
 
 [[problème d'optimisation]] où l'ensemble des contraintes $C$ est défini par
 

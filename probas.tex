@@ -1,0 +1,194 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[bookmarks]{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\dx}{\mathrm{d}x}
+\newcommand{\dy}{\mathrm{d}y}
+
+\begin{document}
+
+\section{Fonction de répartition}
+
+Somme des coefs dans le bloc entre (0, 0) et le point
+
+\section{Lois marginales}
+\subsection{Cas discret}
+
+\subsubsection{Exemple}
+
+\begin{itemize}
+	\item $p_{00} = \frac{1}{2}$
+	 \item $p_{01}= \frac{1}{6}$
+		\item $p_{10} = \frac{1}{6}$
+	\item $p_{11} = \frac{1}{6}$
+\end{itemize}
+
+\paragraph{Loi de $X$}
+
+\begin{align*}
+	P(X=0) &= p_{00} + p_{01} = \frac{2}{3} \\
+	P(X=1) &= p_{10} + p_{11} = \frac{1}{3} \\
+\end{align*}
+
+\paragraph{Loi de $Y$}
+
+\begin{align*}
+	P(Y=0) &= p_{00} + p_{01} = \frac{2}{3} \\
+	P(Y=1) &= p_{10} + p_{11} = \frac{1}{2} \\
+\end{align*}
+
+
+
+\subsection{Cas continu}
+
+Densité de $X$: $p(x, \cdot) = \int_{\R} p(x, y) \mathrm{d}y$
+
+\subsubsection{Exemple}
+
+\begin{align*}
+	p(x, y) &= \begin{cases}
+		\theta^2 e^{-\theta x} &\text{si } x> y> 0 \\
+		0 &\text{sinon}
+	\end{cases} \\
+\end{align*}
+
+\paragraph{Loi de $X$}
+
+Si $x<0$,  $p(x,  \cdot ) = 0$
+
+Sinon:
+
+\begin{align*}
+	p(x,  \cdot ) &= \int_{\R} p(x, y) \dy \\
+		      &= \underbrace{\int_{-\infty}^{0} p(x, y)\dy }_{y\le 0} + \int_{0}^{x} p(x, y)\dy + \underbrace{\int_x^{+\infty}}_{y\ge x} \\
+		      &= \int_0^x \theta^2 e^{-\theta x} \dy \\
+		      &= \left[ \theta^2 e^{-\theta x} \right]_0^x \\
+		      &= \theta^2 e^{-\theta x} \\
+\end{align*}
+
+Or $\Gamma(\theta, \lambda) = \frac{\theta^{\lambda}}{\Gamma(\lambda)} e^{-\theta x} x^{\lambda-1} $
+
+Donc $X \sim \Gamma(\theta, 2)$
+
+\begin{align*}
+	p( \cdot , y) &= \int_{\R} p(x, y)\dx \\
+	&= \int_y^{+\infty} \theta^2 e^{-\theta x} \dx \\
+	&= \left[ -\frac{\theta^2}{\theta} e^{-\theta x} \right]_{0}^{+\infty} \\
+	&= 0 - (-\theta e^{-\theta y}) \\
+	&= \theta e^{-\theta y} \\
+\end{align*}
+
+\[
+	Y \sim \Gamma(\theta, 1)
+\] 
+Si $X$ et $Y$ sont des variables aléatoires indépendantes et $\alpha$ et $\beta$ sont des applications continues de $\R$ dans $\R$, alors 
+
+\subsection{Exemple}
+
+\begin{align*}
+	p(x, y) &= \begin{cases}
+		\frac{1}{4}(1+xy) &\text{si} x\in ]-1, 1[ \land y \in ]-1, 1[  \\
+		0 &\text{sinon}
+	\end{cases} \\
+\end{align*}
+
+Montrons que $X$ et $Y$  ne sont pas indépendants
+
+\begin{align*}
+	p(x,  \cdot ) &= \int_{-1}^{1} p(x, y) \dy \\ 
+		      &= \frac{1}{4} \int_{-1}^1 (1+xy) \dy \\
+		      &= \frac{1}{4} \left[ y + \frac{y^2}{2} x \right]_{-1}^1 \\
+		      &= \frac{1}{4} \left( \left( 1+\frac{x}{2} \right) - \left( -1 + \frac{x}{2} \right)  \right)  \\
+		      &= \frac{1}{2} \\
+\end{align*}
+
+$x$ et $y$ jouent des rôles symmétriques donc $p( \cdot , y) = \frac{1}{2}$
+
+Et donc 
+\begin{align*}
+	p(x,  \cdot ) p(y,  \cdot ) = \frac{1}{4} &\neq p(x, y)
+\end{align*}
+
+ainsi $X$ et $Y$ ne sont pas indépendantes.
+
+
+On a
+\begin{align*}
+	X^2 \text{indép} Y^2 &\iff \forall \Delta, \Delta', P(X^2 \in \Delta, Y^2\in \Delta') = P(X^2\in \Delta) P(Y^2\in \Delta') \\
+\end{align*}
+
+Soient $u, v \in [0, 1[$
+
+\begin{align*}
+	P(X^2\in [0, u], Y^2\in [0, v]) &= P(-\sqrt{u} \le X \le  \sqrt{u}, -\sqrt{v} \le Y\le \sqrt{v}  ) \\
+					&= \int_{-\sqrt{v}}^{\sqrt{v} } \int_{-\sqrt{u} }^{\sqrt{u} } p(x, y) \dx \dy\\
+					&= \int_{-\sqrt{v} }^{\sqrt{v} } \int_{-\sqrt{u} }^{\sqrt{u} } \frac{1}{4} (1+xy) \dx \dy \\
+					&= \frac{1}{4} \int_{-\sqrt{v} }^{\sqrt{v} } \left[ x + \frac{x^2}{2} y \right]_{-\sqrt{u} }^{\sqrt{u} } \dy \\
+					&= \frac{1}{4} \int_{-\sqrt{v} }^{\sqrt{v} } \left( \left( \sqrt{u} + \frac{u}{2} y \right) - \left( -\sqrt{u} + \frac{u}{2}y \right)   \right)  \\
+					&= \frac{1}{4} \int_{-\sqrt{v} }^{\sqrt{v} } 2 \sqrt{u}  \dy \\
+					&= \frac{1}{4} \left[ 2\sqrt{u} y \right]_{-\sqrt{u} }^{\sqrt{u} } \\
+					&= \frac{1}{4} \left( 2\sqrt{u} \sqrt{v} - 2 \sqrt{u}(- \sqrt{v})  \right)  \\
+					&= \sqrt{uv}  \\
+					\\
+	P(X^2\in [0, u]) &= P(-\sqrt{u} \le X \le \sqrt{u} ) \\
+			 &= \int_{-\sqrt{u} }^{\sqrt{u} } p(x,  \cdot ) \dx \\
+			 &= \frac{1}{2} (\sqrt{u} - (-\sqrt{u} )) \\
+			 &=  \sqrt{u}  \\
+			 \\
+	 P(Y^2\in [0, v]) &=  \sqrt{v}  \\
+\end{align*}
+
+
+\section{Moments centrés et non centrés}
+
+\begin{align*}
+	m_{ij} &= E(X^{i}Y^{j}) \\
+	\mu_{ij} &= E((X-E(X))^i(Y-E(Y))^j) \\
+\end{align*}
+
+
+\section{Matrice de covariance}
+
+\begin{align*}
+	\operatorname{CovMat}(X, Y) &= \begin{pmatrix} 
+	V(X) & \operatorname{Cov}(X, Y)  \\
+	\operatorname{Cov}(X, Y) & V(Y) 
+\end{pmatrix} = E[VV^{\top}] \\
+\end{align*}
+
+Avec $V = \begin{pmatrix} X - E(X) \\ Y-E(Y) \end{pmatrix} $
+
+\section{Fonction caractéristique}
+
+\begin{align*}
+	\phi_{X, Y}(u_1, u_2) &= E(\exp(iU^{\top}W)) \\
+			      &= E(\exp(i\left( \begin{pmatrix} u_1 & u_2 \end{pmatrix} \begin{pmatrix} X\\ Y \end{pmatrix}   \right) )) \\
+			      &= E(\exp(i(u_1 X + u_2 Y))) \\
+\end{align*}
+
+\section{Coefficient de corrélation}
+
+\begin{align*}
+	r(X, Y) &= \frac{\operatorname{Cov}(X, Y)}{\sigma_X \sigma_Y} \\
+\end{align*}
+
+\section{$E(XY)$ comme produit scalaire}
+
+
+\begin{align*}
+	\left<X, Y \right> &= E(XY) \\
+\end{align*}
+
+L'inégalité de Cauchy-Schwarz donne
+
+\begin{align*}
+	\left<X, Y \right> ^2 &\le \left<X, X \right>  \left<Y, Y \right> \\
+			      &	\vdots \\
+			      \text{preuve que $r$ entre -1 et 1}
+
+\end{align*}
+
+
+\end{document}

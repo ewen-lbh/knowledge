@@ -1,4 +1,5 @@
 # Problème d'optimisation
+#optimisation 
 
 [[problème]] $P$ où l'on cherche les valeurs d'un ou de plusieurs [[paramètre|paramètres]] minimisant la valeur d'une [[fonction]] $f$.
 
