@@ -1,0 +1,122 @@
+autocorrélation
+	R_x(tau) = intégrale sur |R de x(t) x*(t-tau) dt
+intercorrel
+	R_x*(-tau) = R_x(tau)
+	|R_x| <= R_x(0)
+
+classes
+	déterministe energie finie
+		energie = intégrale de |x(t)|^2 dt
+		R_xy(tau) = intégrale de x(t) y*(t-tau) dt = produit scalaire x(t) par y(t-tau)
+	déterministe périodique puiss finie
+		puiss = 1/T_0 intégrale_(-T_0/2)^(T_0/2) |x(t)|^2 dt
+		R_xy : pareil mais sur -T_0/2, T_0/2 et diviser par T_0
+	déterministe non périodique puiss finie
+		puiss = lim(T -> oo) 1/T integrale_(T/2)^(T/2) |x(t)|^2 dt	
+		R_xy : pareil mais limite(T -> oo), sur -T/2, T/2 et diviser par T
+	aléatoires stationnaires
+		moyenne = E(t |-> x(t)) 
+		moment ordre 2 = E(t |-> x(t) x*(t-tau))
+		R_xy = E(t |-> x(t) y*(t-tau))
+		prod scal: E(x y*)
+		stationnaire = moyenne et moment ordre 2 dependent pas du temps
+
+
+
+puissance d'un signal
+
+signal aléatoire
+
+transf de fourrier
+
+signal stationnaire
+
+moyenne signal aléatoire stationnaire indep du temps?
+
+densité spectrale de puiss
+	pareil que énergie 
+	mais aussi s_x(f) = somme_(k € ZZ) |c_k|^2 delta(f- k f_0)  } pour des signaux périodiques
+		avec x(t) = somme_(k € ZZ) c_k e^(j 2 pi k f_0 t)   }  
+	
+	mais uassi s_x(f) = lim(T->oo) 1/T |X_T(f)|^2               } pour non periodiques
+	      avec X_T(f) = integrale(-T/2, T/2) x(t) e^(-j2pi ft) dt
+
+
+densité spectrale d'energie
+	s_x(f) = TF R_x(tau) = |TF X(f)|^2
+
+	propriétés:
+		- s_x >= 0
+		Puiss/energie = R_x(0)
+
+bruit blanc 
+	s_x(f) constant
+bruit gaussien
+	distribution normale (N(m, sigma^2)) dans le domaine temporel
+
+moy d'un signal aléa statio = 0
+
+mq filtre linéaire invar dans tps
+	y = T ° x => y(t-t_0) = T(x(t-t_0))
+
+filtre réalisable <=>
+	temporellement réel
+	stable
+	causal
+	H*(-f) = H(f)
+	H(f) = -j H(f) * 1/(pi f)
+
+appliquer un filtre
+	sortie = T(entrée) = entrée * (réponse impulsionnelle)
+
+filtre causal
+	rien avant 0 dans la réponse impulsionnelle
+
+réponse impulsionnelle
+	T(delta(t))
+
+	E(sortie) = E(entrée) H(0)
+
+réponse en fréquence
+	
+
+stabilité (BIBO)
+	entrée bornée => sortie bornée
+
+passe-*, réjecteur
+
+prod de convolution
+	x * y  = tau |-> integrale(|R) x(tau-t) y(t) dt
+
+2e argument de fft
+	zero padding: on prolonge les points par (2e argument) - (nb de points de base) zéros => meilleure résolution
+
+fenêtres de pondération
+
+équations récurrentes de filtres
+
+filtres avec retard
+
+réponse impulsionelle finie RIF
+
+causalité / réalisabilité pour filtres récurrents
+
+matlab fonction filter
+
+ordre d'un filtre
+
+wiener-lee
+	s_y = s_x · |H|^2
+	R_yx = R_x * h
+	R_y(tau) = R_x(tau) * h(tau) * h*(-tau)
+
+maximisation SNR
+	x = signal + bruit
+	SNR(t) = filtre(signal)^2 / E(filtre(bruit)^2)
+
+	SNR(t_0) = |integrale H(f) S(f) e^(j 2pi f t_0) df|  /  (integrale |H(f)|^2 s_n(f) df)     <= integrale b(f) b*(f) df
+			inégalité: cauchy schwarz
+	=> H(f) = k TF(signal)(f)*/s_bruit(f) e^(-j 2pi f t_0)
+	SNRmax = 2E/N_0
+
+
