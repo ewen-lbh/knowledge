@@ -1,4 +1,4 @@
-# Impulsion de Dirac
+#signal 
 
 $\delta$ tel que
 
@@ -10,4 +10,10 @@ $\delta$ tel que
 - $\mathcal{F}(\delta) = 1$
 - $\mathcal{F}(1) = \delta$
 - $\mathcal{F}(\delta(t-t_0)) = \operatorname{exp}(-j2 \pi ft_0)$ (et pareil dans l'autre sens)
+
+## Propriétés
+
+- [[série de Fourier]]: $$
+\sum_{n\in \mathbb{Z}} c_n e^{+j2\pi n f_0 t} = \sum_{n\in \mathbb{Z}} c_n \delta(f-nf_0)
+$$
 

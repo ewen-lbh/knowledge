@@ -1,4 +1,3 @@
-# Égalité de Parseval
 Propriété du [[produit de convolution]]:
 
 $$

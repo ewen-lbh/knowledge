@@ -1,0 +1,1 @@
+[[signal]] de [[classes de signaux|classe]] 1, 2 ou 3
