@@ -1,5 +1,3 @@
-# fiche de traitement du signal
-
 ## transformée de Fourrier
 
 On prend $p \in \mathcal{L}^2$ (ou $p \in \mathcal{L}^1$, c'est _plus simple_)
@@ -126,7 +124,7 @@ Un [[signal]] [[signal déterministe|déterministe]] à [[énergie d'un signal|�
 ### Énergie
 
 $$
-E(x) = \int_\mathbb{R} | x |^2 = \int_\mathbb{R} |\mathcal{F}[X]|^2 
+E(x) = \int_\mathbb{R} | x |^2 = \int_\mathbb{R} |\mathcal{F}[x]|^2 
 $$
 
 ### Produit scalaire
@@ -331,10 +329,11 @@ Un filtre de [[réponse impulsionnelle]] $h$ est dit _réalisable_ si et seuleme
 2. $h \in L^1$ (stabilité)
 3. $h$ est [[réponse impulsionnelle causale|causale]]
 
+ou:
 #### Domaine fréquentiel
 
 1. $H$ vérifie la [[symétrie Hermitienne]]
-2. ne peut se traduire
+2. (ne peut se traduire)
 3. $H = -jH \ast \frac{1}{\pi \operatorname{id}}$
 
 ## relation de filtrage linéaire
