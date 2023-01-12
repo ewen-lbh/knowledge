@@ -1,8 +1,5 @@
-# Signal
+#signal
 
-Classes de signaux:
+Un _signal_ est une [[fonction]] du temps ([[signal déterministe|déterministe]] ou non) dont la sortie est souvent interprétée comme une [[amplitude]].
 
-- [[signaux à énergie finie]]
-- [[signaux déterministes périodiques]]
-- [[signaux déterministes à puissance finie]]
-- [[signaux aléatoires stationnaires]]
+Les signaux sont clasés en 4 [[classes de signaux|classes]]

@@ -1,0 +1,765 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\hypertarget{fiche-de-traitement-du-signal}{%
+\section{fiche de traitement du
+signal}\label{fiche-de-traitement-du-signal}}
+
+\hypertarget{transformuxe9e-de-fourrier}{%
+\subsection{transformée de Fourrier}\label{transformuxe9e-de-fourrier}}
+
+On prend \(p \in \mathcal{L}^2\) (ou \(p \in \mathcal{L}^1\),
+c\textquotesingle est \emph{plus simple}) Formule directe \[
+\mathcal{F}[p](f) := \int_\mathbb{R} e^{-j2\pi f t} p(t) \mathrm{d}t
+\] {[}{[}transformée de Fourrier inverse\textbar Formule inverse{]}{]}
+\[
+\mathcal{F^{-1}}[P](t) := \int_\mathbb{R} e^{j2\pi f t} P(f) \mathrm{d}f
+\]
+
+\href{https://youtube.com/watch?v=spUNpyF58BY}{3b1b}
+
+\hypertarget{duxe9rivuxe9eduxe9rivation}{%
+\subsubsection{{[}{[}dérivée\textbar Dérivation{]}{]}}\label{duxe9rivuxe9eduxe9rivation}}
+
+\[
+\mathcal{F}[x^{(n)}](f) = (j2\pi f)^n \mathcal{F}[x](f)
+\]
+
+\hypertarget{propriuxe9tuxe9s}{%
+\subsubsection{Propriétés}\label{propriuxe9tuxe9s}}
+
+\(\mathcal{F}\) est
+
+\begin{itemize}
+\tightlist
+\item
+  linéaire
+\item
+  conserve la parité
+\item
+  \textbf{transformation}
+  \(\mathcal{F}[x(t-t_0)](f) = e^{-2\pi j f t_0} X(f)\)
+\item
+  \textbf{modulation} \(\mathcal{F}[x(t)e^{j2\pi f_0 t}] = X(f-f_0)\)
+\item
+  \textbf{similitude}
+  \(\mathcal{F}[x(at)](f) = \frac{1}{|a|} X(\frac{f}{a})\)
+\end{itemize}
+
+en gros translation en temps \(\iff\) multiplication par exp(...) en
+fréquence
+
+\hypertarget{transformuxe9es-usuelles}{%
+\subsubsection{Transformées usuelles}\label{transformuxe9es-usuelles}}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule()
+Temporel & Fréquentiel \\
+\midrule()
+\endhead
+\(x^\ast\) & \(X^\ast \circ (-\operatorname{id})\) \\
+\(x \circ (a \operatorname{id} + b)\) & \$\textbackslash frac\{1\}\{ \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{transformuxe9e-de-fourrier-inverse}{%
+\subsection{transformée de Fourrier
+inverse}\label{transformuxe9e-de-fourrier-inverse}}
+
+\#signal
+
+Avec \(X\) dans \(L^1\) ou \(L^2\)
+
+\[
+\int_\mathbb{R} e^{j2\pi ft} X(f) \mathrm{d}f
+\]
+
+\hypertarget{produit-de-convolution}{%
+\subsection{produit de convolution}\label{produit-de-convolution}}
+
+\#signal Opérateur défini par
+
+\[
+f \ast g = \int_{-\infty}^{+\infty} g(t-\tau) f(\tau) \mathrm{d}\tau
+\]
+
+\hypertarget{propriuxe9tuxe9s-1}{%
+\subsubsection{Propriétés}\label{propriuxe9tuxe9s-1}}
+
+\begin{itemize}
+\item
+  Avec la {[}{[}transformée de Fourrier{]}{]}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(\mathcal{F}[f \ast g] = \mathcal{F}[f]\cdot \mathcal{F}[g]\)
+  \item
+    \(\mathcal{F}[f\cdot g] = \mathcal{F}[f] \ast \mathcal{F}[g]\)
+  \end{itemize}
+\item
+  \(\mathcal{F}[\text{carré}] = \text{sinc}\)
+\item
+  {[}{[}égalité de Parseval{]}{]}
+\end{itemize}
+
+\hypertarget{avec-limpulsion-de-dirac}{%
+\subsubsection{Avec l\textquotesingle{[}{[}impulsion de
+Dirac{]}{]}}\label{avec-limpulsion-de-dirac}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{localisation} \(x(t)\delta(t-t_0) = x(t_0)\delta(t-t_0)\)
+\item
+  produit de convolution \(x(t)\ast \delta(t-t_0) = x(t-t_0)\)
+\item
+  \(x(t_0) = \int_\mathbb{R} x(t) \delta(t-t_0) \mathrm{d}t\)
+\end{itemize}
+
+\hypertarget{convolution-par-la-ruxe9ponse-impulsionnelle-dun-filtre}{%
+\subsubsection{Convolution par la {[}{[}réponse impulsionnelle{]}{]}
+d\textquotesingle un
+{[}{[}filtre{]}{]}}\label{convolution-par-la-ruxe9ponse-impulsionnelle-dun-filtre}}
+
+\hypertarget{propriuxe9tuxe9s-2}{%
+\paragraph{Propriétés}\label{propriuxe9tuxe9s-2}}
+
+Soit \(h\) la réponse impulsionnelle d\textquotesingle un filtre.
+L\textquotesingle opération \(T = x \mapsto x \ast h\) est:
+
+\begin{itemize}
+\tightlist
+\item
+  Linéaire
+\item
+  Invariante dans le temps
+  \[\forall t_0, t \in \mathbb{R}, T[x](t) = T[x](t-t_0)\]
+\item
+  Stable (BIBO) Si \(x\) est borné alors \(T[x]\) est borné, ou de
+  manière équivalente (CNS) \[\int_\mathbb{R} |h| < \infty\]
+\item
+  Le spectre du signal est "limité"
+\end{itemize}
+
+\hypertarget{impulsion-de-dirac}{%
+\subsection{impulsion de Dirac}\label{impulsion-de-dirac}}
+
+\#signal
+
+\(\delta\) tel que
+
+\begin{itemize}
+\tightlist
+\item
+  \(\int_{-\infty}^0 \delta = 0\)
+\item
+  \(\int_{0}^{+\infty} \delta = 1\)
+\end{itemize}
+
+\hypertarget{transformuxe9e-de-fourrier-1}{%
+\subsubsection{{[}{[}transformée de
+Fourrier{]}{]}}\label{transformuxe9e-de-fourrier-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  \(\mathcal{F}(\delta) = 1\)
+\item
+  \(\mathcal{F}(1) = \delta\)
+\item
+  \(\mathcal{F}(\delta(t-t_0)) = \operatorname{exp}(-j2 \pi ft_0)\) (et
+  pareil dans l\textquotesingle autre sens)
+\end{itemize}
+
+\hypertarget{propriuxe9tuxe9s-3}{%
+\subsubsection{Propriétés}\label{propriuxe9tuxe9s-3}}
+
+\begin{itemize}
+\tightlist
+\item
+  {[}{[}série de Fourier{]}{]}: \[
+  \sum_{n\in \mathbb{Z}} c_n e^{+j2\pi n f_0 t} = \sum_{n\in \mathbb{Z}} c_n \delta(f-nf_0)
+  \]
+\end{itemize}
+
+\hypertarget{signal-duxe9terministe-uxe0-uxe9nergie-finie}{%
+\subsection{signal déterministe à énergie
+finie}\label{signal-duxe9terministe-uxe0-uxe9nergie-finie}}
+
+\#signal
+
+\hypertarget{duxe9finition}{%
+\subsubsection{Définition}\label{duxe9finition}}
+
+Un {[}{[}signal{]}{]} {[}{[}signal
+déterministe\textbar déterministe{]}{]} à {[}{[}énergie
+d\textquotesingle un signal\textbar énergie{]}{]}
+{[}{[}fini\textbar finie{]}{]}
+
+\hypertarget{uxe9nergie}{%
+\subsubsection{Énergie}\label{uxe9nergie}}
+
+\[
+E(x) = \int_\mathbb{R} | x |^2 = \int_\mathbb{R} |\mathcal{F}[X]|^2 
+\]
+
+\hypertarget{produit-scalaire}{%
+\subsubsection{Produit scalaire}\label{produit-scalaire}}
+
+\[
+\langle x, y \rangle = \int_\mathbb{R} x y^\ast
+\]
+
+\hypertarget{densituxe9-spectrale-duxe9nergie}{%
+\subsubsection{{[}{[}densité spectrale
+d\textquotesingle énergie{]}{]}}\label{densituxe9-spectrale-duxe9nergie}}
+
+\[
+s_x(f) = |\mathcal{F}[x](f)|^2
+\]
+
+\hypertarget{signal-duxe9terministe-puxe9riodique-uxe0-puissance-finie}{%
+\subsection{signal déterministe périodique à puissance
+finie}\label{signal-duxe9terministe-puxe9riodique-uxe0-puissance-finie}}
+
+\hypertarget{duxe9finition-1}{%
+\subsubsection{Définition}\label{duxe9finition-1}}
+
+Un {[}{[}signal{]}{]} {[}{[}signal déterministe{]}{]}
+{[}{[}périodique{]}{]} à {[}{[}énergie d\textquotesingle un
+signal\textbar puissance{]}{]} {[}{[}fini\textbar finie{]}{]}.
+
+\hypertarget{puissance}{%
+\subsubsection{Puissance}\label{puissance}}
+
+Soit \(x\) un signal déterministe périodique à puissance finie de
+{[}{[}période{]}{]} \(T\)
+
+\[
+P(x) = \frac{1}{T} \int^{-T/2}_{T/2} |x|^2
+\]
+
+\hypertarget{produit-scalaireproduit-scalaire}{%
+\subsubsection{{[}{[}produit scalaire\textbar Produit
+scalaire{]}{]}}\label{produit-scalaireproduit-scalaire}}
+
+\[
+\langle x, y \rangle = \frac{1}{T} \int^{-T/2}_{T/2} x y^\ast
+\]
+
+\hypertarget{densituxe9-spectrale-duxe9nergiedensituxe9-spectrale-de-puissance}{%
+\subsubsection{{[}{[}densité spectrale
+d\textquotesingle énergie\textbar densité spectrale de
+puissance{]}{]}}\label{densituxe9-spectrale-duxe9nergiedensituxe9-spectrale-de-puissance}}
+
+Soit
+\(x(t) = \displaystyle\sum_{k\in \mathbb{Z}} c_k \exp(j2\pi k f_0 t)\)
+Alors: \[
+s_x(f) = \sum_{k\in \mathbb{Z}} |c_k|^2 \delta(f - kf_0)
+\]
+
+\hypertarget{signal-duxe9terministe-non-puxe9riodique-uxe0-puissance-finie}{%
+\subsection{signal déterministe non périodique à puissance
+finie}\label{signal-duxe9terministe-non-puxe9riodique-uxe0-puissance-finie}}
+
+\hypertarget{duxe9finition-2}{%
+\subsubsection{Définition}\label{duxe9finition-2}}
+
+Un {[}{[}signal{]}{]} {[}{[}signal
+déterministe\textbar déterministe{]}{]} non-{[}{[}périodique{]}{]} à
+{[}{[}énergie d\textquotesingle un signal\textbar puissance{]}{]}
+{[}{[}fini\textbar finie{]}{]}
+
+\hypertarget{puissance-1}{%
+\subsubsection{Puissance}\label{puissance-1}}
+
+\[
+P(x) = \lim_{T\to \infty} \frac{1}{T} \int^{-T/2}_{T/2} |x|^2
+\]
+
+\hypertarget{produit-scalaireproduit-scalaire-1}{%
+\subsubsection{{[}{[}produit scalaire\textbar Produit
+scalaire{]}{]}}\label{produit-scalaireproduit-scalaire-1}}
+
+\[
+\langle x, y\rangle = \lim_{T\to \infty} \frac{1}{T} \int^{-T/2}_{T/2} xy^\ast
+\]
+
+\hypertarget{densituxe9-spectrale-duxe9nergiedensituxe9-spectrale-de-puissance-1}{%
+\subsubsection{{[}{[}densité spectrale
+d\textquotesingle énergie\textbar densité spectrale de
+puissance{]}{]}}\label{densituxe9-spectrale-duxe9nergiedensituxe9-spectrale-de-puissance-1}}
+
+\[
+s_x(f) = \lim_{T\to \infty} \frac{1}{T} \left| \int^{-T/2}_{T/2} x(t) e^{-j2\pi ft} \mathrm{d}t \right|^2
+\]
+
+\hypertarget{signal-aluxe9atoire-stationnaire}{%
+\subsection{signal aléatoire
+stationnaire}\label{signal-aluxe9atoire-stationnaire}}
+
+\hypertarget{duxe9finition-3}{%
+\subsubsection{Définition}\label{duxe9finition-3}}
+
+Un {[}{[}signal{]}{]} non-{[}{[}signal
+déterministe\textbar déterministe{]}{]}
+{[}{[}stationnarité\textbar stationnaire{]}{]}. Il est défini par une
+{[}{[}variable aléatoire{]}{]} au lieu d\textquotesingle une fonction du
+temps.
+
+\begin{itemize}
+\tightlist
+\item
+  La {[}{[}espérance\textbar moyenne{]}{]} ne dépend pas de \(t\)
+\item
+  Le {[}{[}moment d\textquotesingle ordre 2{]}{]}
+  \(E(t\mapsto x(t) x^\ast(t-\tau))\) ne dépend pas de \(t\)
+\end{itemize}
+
+\hypertarget{produit-scalaire-1}{%
+\subsubsection{{[}{[}produit scalaire{]}{]}}\label{produit-scalaire-1}}
+
+\[
+\langle x, y \rangle = E(xy^\ast)
+\]
+
+\hypertarget{uxe9nergie-dun-signalpuissance-moyenne}{%
+\subsubsection{{[}{[}énergie d\textquotesingle un
+signal\textbar puissance{]}{]}
+moyenne}\label{uxe9nergie-dun-signalpuissance-moyenne}}
+
+\[
+P(x) = E(|x|^2)
+\]
+
+\hypertarget{densituxe9-spectrale-duxe9nergiedensituxe9-spectrale-de-puissance-2}{%
+\subsubsection{{[}{[}densité spectrale
+d\textquotesingle énergie\textbar densité spectrale de
+puissance{]}{]}}\label{densituxe9-spectrale-duxe9nergiedensituxe9-spectrale-de-puissance-2}}
+
+\textbf{Si \(X = \mathcal{F}[x]\) existe}:
+
+\[
+s_x(f) = \lim_{T\to \infty} \frac{1}{T} E\left( \left| \int^{-T/2}_{T/2} X(f) e^{-j2\pi ft} \mathrm{d}t \right|^2 \right)
+\]
+
+\hypertarget{espuxe9rance-dun-signal-filtrefiltruxe9}{%
+\subsubsection{Espérance d\textquotesingle un signal
+{[}{[}filtre\textbar filtré{]}{]}}\label{espuxe9rance-dun-signal-filtrefiltruxe9}}
+
+\[
+E(H \cdot X) = H(0) \cdot E(X)
+\]
+
+\hypertarget{densituxe9-spectrale-duxe9nergie-1}{%
+\subsection{densité spectrale
+d\textquotesingle énergie}\label{densituxe9-spectrale-duxe9nergie-1}}
+
+Pour n\textquotesingle importe quel {[}{[}signal{]}{]},
+c\textquotesingle est la {[}{[}transformée de Fourrier{]}{]} de
+l\textquotesingle{[}{[}autocorrélation{]}{]}: \[
+s_x = \mathcal{F}[R_x]
+\]
+
+Il y a aussi une caractérisation qui diffère selon la {[}{[}classes de
+signaux\textbar classe du signal{]}{]}.
+
+\hypertarget{propriuxe9tuxe9s-4}{%
+\subsubsection{Propriétés}\label{propriuxe9tuxe9s-4}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{positive} \(s_x \geq 0\)
+\item
+  \textbf{réelle} \(s_x \in \mathbb{R}^\mathbb{R}\)
+\item
+  \textbf{parité} si \(x\) réel, \(s_x\) {[}{[}parité
+  d\textquotesingle une fonction\textbar paire{]}{]}
+\end{itemize}
+
+\hypertarget{lien-avec-luxe9nergie-dun-signal}{%
+\subsubsection{Lien avec l\textquotesingle{[}{[}énergie
+d\textquotesingle un
+signal{]}{]}}\label{lien-avec-luxe9nergie-dun-signal}}
+
+\[
+\int_\mathbb{R} s_x = E(x)
+\]
+
+\hypertarget{du-signal-filtrefiltruxe9}{%
+\subsubsection{Du signal
+{[}{[}filtre\textbar filtré{]}{]}}\label{du-signal-filtrefiltruxe9}}
+
+Voir les {[}{[}relations de Wiener-Lee{]}{]}
+
+\hypertarget{lien-avec-les-probabilituxe9s}{%
+\subsubsection{Lien avec les
+probabilités}\label{lien-avec-les-probabilituxe9s}}
+
+S\textquotesingle apparente à la {[}{[}densité de probabilité{]}{]}:
+c\textquotesingle est la répartition de l\textquotesingle énergie en
+fonction des fréquences
+
+\hypertarget{intercorruxe9lation}{%
+\subsection{intercorrélation}\label{intercorruxe9lation}}
+
+Pour deux {[}{[}signal\textbar signaux{]}{]} \(x\) et \(y\) de même
+{[}{[}classes de signaux\textbar classe{]}{]}
+
+\[
+R_{xy}(\tau) = \left\langle x, y(\cdot-\tau)\right\rangle\] Avec
+\(\langle \cdot, \cdot\cdot \rangle\) dépendant de la classe des signaux
+
+\hypertarget{du-signal-filtrefiltruxe9-1}{%
+\subsubsection{Du signal
+{[}{[}filtre\textbar filtré{]}{]}}\label{du-signal-filtrefiltruxe9-1}}
+
+Voir les {[}{[}relations de Wiener-Lee{]}{]}
+
+\hypertarget{autocorruxe9lation}{%
+\subsection{autocorrélation}\label{autocorruxe9lation}}
+
+Cas particulier de l\textquotesingle{[}{[}intercorrélation{]}{]}
+
+\[
+R_x(\tau) = R_{xx}(\tau)
+\]
+
+\hypertarget{du-signal-filtrefiltruxe9-2}{%
+\subsubsection{Du signal
+{[}{[}filtre\textbar filtré{]}{]}}\label{du-signal-filtrefiltruxe9-2}}
+
+Voir les {[}{[}relations de Wiener-Lee{]}{]}
+
+\hypertarget{symuxe9trie-hermitienne}{%
+\subsubsection{Symétrie Hermitienne}\label{symuxe9trie-hermitienne}}
+
+\[
+R_x^\ast(-\tau) = R_x(\tau)
+\]
+
+\hypertarget{valeur-maximale}{%
+\subsubsection{Valeur maximale}\label{valeur-maximale}}
+
+\[
+|R_x(\tau)| \leq R_x(0)
+\]
+
+\hypertarget{distance-entre-xt-et-xt-tau}{%
+\subsubsection{\texorpdfstring{Distance entre \(x(t)\) et
+\(x(t-\tau)\)}{Distance entre x(t) et x(t-\textbackslash tau)}}\label{distance-entre-xt-et-xt-tau}}
+
+\[
+d(x(t), x(t-\tau)) = \sqrt{ 2\Big[R_x(0) - R_x(\tau)\Big] }
+\]
+
+\hypertarget{duxe9composition-de-lebesgue}{%
+\subsubsection{Décomposition de
+Lebesgue}\label{duxe9composition-de-lebesgue}}
+
+On peut quasiment tout le temps décomposer
+l\textquotesingle autocorrélation en une somme d\textquotesingle une
+fonction \(\xrightarrow[\tau \to \infty]{} 0\) et d\textquotesingle une
+somme de fonctions {[}{[}périodique\textbar périodiques{]}{]}
+
+\hypertarget{signal-bruit}{%
+\subsection{signal bruit}\label{signal-bruit}}
+
+\hypertarget{bruit-blanc}{%
+\subsubsection{Bruit blanc}\label{bruit-blanc}}
+
+{[}{[}signal aléatoire stationnaire{]}{]} tel que \[
+\begin{cases}
+R_x &= \frac{N_0}{2} \delta \\
+s_x &= \frac{N_0}{2}
+\end{cases}
+\]
+
+\hypertarget{bruit-gaussien}{%
+\subsubsection{Bruit gaussien}\label{bruit-gaussien}}
+
+\hypertarget{ruxe9alisabilituxe9-dun-filtre}{%
+\subsection{réalisabilité d\textquotesingle un
+filtre}\label{ruxe9alisabilituxe9-dun-filtre}}
+
+\hypertarget{duxe9finition-4}{%
+\subsubsection{Définition}\label{duxe9finition-4}}
+
+\hypertarget{domaine-temporel}{%
+\paragraph{Domaine temporel}\label{domaine-temporel}}
+
+Un filtre de {[}{[}réponse impulsionnelle{]}{]} \(h\) est dit
+\emph{réalisable} si et seulement si:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(h\) est réelle
+\item
+  \(h \in L^1\) (stabilité)
+\item
+  \(h\) est {[}{[}réponse impulsionnelle causale\textbar causale{]}{]}
+\end{enumerate}
+
+\hypertarget{domaine-fruxe9quentiel}{%
+\paragraph{Domaine fréquentiel}\label{domaine-fruxe9quentiel}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(H\) vérifie la {[}{[}symétrie Hermitienne{]}{]}
+\item
+  ne peut se traduire
+\item
+  \(H = -jH \ast \frac{1}{\pi \operatorname{id}}\)
+\end{enumerate}
+
+\hypertarget{relation-de-filtrage-linuxe9aire}{%
+\subsection{relation de filtrage
+linéaire}\label{relation-de-filtrage-linuxe9aire}}
+
+\#signal
+
+\hypertarget{signal-duxe9terministe}{%
+\paragraph{{[}{[}signal
+déterministe{]}{]}}\label{signal-duxe9terministe}}
+
+\[
+Y = X \cdot H
+\]
+
+\hypertarget{signal-aluxe9atoire-stationnaire-isomuxe9trie-fondamentale}{%
+\paragraph{{[}{[}signal aléatoire stationnaire{]}{]}: isométrie
+fondamentale}\label{signal-aluxe9atoire-stationnaire-isomuxe9trie-fondamentale}}
+
+TODO diapo 36 c\textquotesingle est quoi
+\(\stackrel{I}{\leftrightarrow}\) ?
+
+\hypertarget{relations-de-wiener-lee}{%
+\subsection{relations de Wiener-Lee}\label{relations-de-wiener-lee}}
+
+\#signal
+
+On pose \(x\) un {[}{[}signal{]}{]} et \(h\) la {[}{[}réponse
+impulsionnelle{]}{]} d\textquotesingle un {[}{[}filtre{]}{]}.
+
+\hypertarget{sur-la-densituxe9-spectrale-duxe9nergie}{%
+\subsubsection{Sur la {[}{[}densité spectrale
+d\textquotesingle énergie{]}{]}}\label{sur-la-densituxe9-spectrale-duxe9nergie}}
+
+\[
+s_{x * h} = |H|^2 \cdot s_x
+\]
+
+\hypertarget{sur-lintercorruxe9lation}{%
+\subsubsection{Sur
+l\textquotesingle{[}{[}intercorrélation{]}{]}}\label{sur-lintercorruxe9lation}}
+
+\[
+R_{x\ast h,\ x} = R_x \ast h
+\]
+
+\hypertarget{sur-lautocorruxe9lation}{%
+\subsubsection{Sur
+l\textquotesingle{[}{[}autocorrélation{]}{]}}\label{sur-lautocorruxe9lation}}
+
+\[
+R_{x\ast h}(\tau) = R_x(\tau) \ast h(\tau) \ast h^\ast(-\tau)
+\]
+
+\hypertarget{quantificateur-de-signal}{%
+\subsection{quantificateur de signal}\label{quantificateur-de-signal}}
+
+Une {[}{[}transformation non-linéaire d\textquotesingle un signal{]}{]}
+avec \[
+y(t) = i(t) \Delta q_{i(t)}
+\]
+
+Avec:
+
+\begin{itemize}
+\tightlist
+\item
+  \(i(t)\) l\textquotesingle indice de l\textquotesingle échantillon le
+  plus proche temporellement de \(t\)
+\item
+  \(\Delta q_{i(t)}\) tel que \[
+  x(t) \in x_{i(t)} + \frac{1}{2} \left[ -\Delta q_{i(t)}, +\Delta q_{i(t)} \right]
+  \]
+\end{itemize}
+
+\hypertarget{quantification-uniforme}{%
+\subsubsection{Quantification uniforme}\label{quantification-uniforme}}
+
+Quand \(\Delta q_{i(t)}\) ne dépend pas de \(t\) (donc ni de \(i\)):
+
+\[
+\Delta q_{i(t)} = \Delta q =  \frac{2 \max x}{2^\text{bits}}
+\]
+
+\hypertarget{erreur-de-quantification}{%
+\subsubsection{Erreur de
+quantification}\label{erreur-de-quantification}}
+
+On suppose que l\textquotesingle erreur \(\varepsilon\) suit
+\(\mathcal{U}([ -\Delta q, +\Delta q ]/2)\).
+
+\hypertarget{snr}{%
+\paragraph{SNR}\label{snr}}
+
+\begin{align*}
+\operatorname{SNR}_{\text{dB}} &= 10 \log \frac{\sigma_x^2}{\sigma_\varepsilon^2} \\
+&= 10 \log \frac{(\max x)^2 /2}{(\Delta q)^2 / 12} \\
+&= 10 \log \left(  \frac{(\max x)^2}{2} \cdot \frac{12 \cdot 2^{\text{2bits}}}{4 (\max x)^2} \right) \\
+&= 10 \log \left( \frac{12}{8}  2^{2\text{bits}} \right ) \\
+&= 10 \log \frac{8}{12} + 10 \log 2^{2 \text{bits}} \\
+&\stackrel{\text{approx?}}{=} 1.76 + 6\text{bits}
+\end{align*}
+
+\hypertarget{transformation-non-linuxe9aire-dun-signal}{%
+\subsection{transformation non-linéaire d\textquotesingle un
+signal}\label{transformation-non-linuxe9aire-dun-signal}}
+
+Sorte de "filtre" mais sans {[}{[}relation de filtrage linéaire{]}{]},
+la sortie l\textquotesingle image d\textquotesingle une
+{[}{[}fonction{]}{]} quelconque de l\textquotesingle entrée:
+
+\[
+y = g(x)
+\]
+
+\hypertarget{exemples}{%
+\subsubsection{Exemples}\label{exemples}}
+
+\begin{itemize}
+\tightlist
+\item
+  {[}{[}quadrateur{]}{]}
+\item
+  {[}{[}quantificateur de signal{]}{]}
+\end{itemize}
+
+\hypertarget{thuxe9oruxe8me-de-price}{%
+\subsection{théorème de Price}\label{thuxe9oruxe8me-de-price}}
+
+\#signal
+
+\hypertarget{uxe9noncuxe9}{%
+\subsubsection{Énoncé}\label{uxe9noncuxe9}}
+
+Soit \((X_1, X_2) \sim \mathcal{N}_2(m, \sigma^2)\) avec \(m \neq 0\) et
+\(g: \mathbb{R} \to \mathbb{R}\)
+
+\[
+\frac{\partial E(g(X_1) g(X_2))}{\partial E(X_1 X_2)} = E\left( \frac{\partial g(X_1)}{\partial X_1} \cdot \frac{\partial g(X_2)}{X_2}  \right)
+\]
+
+\hypertarget{application-au-quadrateur}{%
+\subsubsection{Application au
+{[}{[}quadrateur{]}{]}}\label{application-au-quadrateur}}
+
+On a \(y = x^2\).
+
+On veut une expression de \(R_y\) en fonction de \(R_x\).
+
+\begin{align*}
+\frac{\partial R_y}{\partial R_x}(\tau)  &= \frac{\partial \langle y, y(\cdot -\tau) \rangle }{\partial \langle x, x(\cdot -\tau) \rangle} \\
+&= \frac{\partial E(x^2(t) x^2(t-\tau))}{\partial E(x(t) x(t-\tau))} \\
+&= \frac{\partial E(g(x_1(t)) g(x_2(t)) )}{\partial E(x_1(t) x_2(t))} \quad \text{avec}\ x_1 = x,\ x_2 = x(\cdot - \tau) \text{ et } g = \operatorname{id}^2 \\
+&= E\left( \frac{\partial x^2}{\partial x} \cdot \frac{\partial x(\cdot - \tau)^2}{\partial x(\cdot - \tau)} \right) \quad \text{d'après le théorème de Price} \\
+&= E(4x(t)x(t-\tau)) \\
+&= 4 E(x(t) x(t-\tau)) \\
+&= 4 \langle x, x(\cdot - \tau) \rangle \\
+&= 4 R_x(\tau)
+\end{align*}
+
+On intègre:
+
+\begin{align*}
+R_y(\tau) &= 2R_x(\tau)^2 + \text{const}
+\end{align*}
+
+Pour trouver \(\text{const}\), on évalue en \(\tau = 0\):
+
+\begin{align*}
+R_y(0) &= \langle y, y \rangle \\
+&= E(yy^\ast) \\
+&= E(|y|^2) \\
+&= E(|x^2|^2) \\
+&= E(x^4) \\
+&= (3 \times 1) \sigma^4 \quad \text{moments d'une loi Gaussienne centrée} \\
+&= 4\sigma^4 \\
+\text{or} \quad R_y(0) &= 2R_x^2(0) + \text{const} \\
+\text{donc} \quad \text{const} &= 4\sigma^4 - 2(R_x(0))^2 \\
+&= 4\sigma^4 - 2E(|x|^2) \\
+&= 4\sigma^4 - \sigma^2 \quad \text{si $|x| = x$ i.e. $x\geq 0$}
+\end{align*}
+
+On peut aussi s\textquotesingle en tenir à \(\text{const} = R^2_x(0)\)
+
+\end{document}

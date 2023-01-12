@@ -1,5 +1,3 @@
-# Matrice de contrôlabilité
-
 Pour un [[système différentiel]] $\dot X(t) = A X(t) + B u(t)$, la _matrice de contrôlabilité_ est la [[matrice]] suivante
 
 $$

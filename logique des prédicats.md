@@ -1,4 +1,3 @@
-# Logique des prédicats
 #modélisation
 
 On ajoute à la [[logique propositionnelle]] des [[quantificateurs]] $\forall$ et $\exists$.

@@ -10,7 +10,10 @@ Propriété d'un [[point d'équilibre]], un point $x_e$ il est dit *asymptotique
 
 On a, pour le [[système différentiel]] $\begin{cases}\dot x = Ax \\ x(0) = x_0\end{cases}$ :
 $$
-x_e \text{ asymptotiquement stable} \iff \operatorname{Re} \operatorname{Sp} A < 0
+\begin{align}
+x_e \text{ asym. stable} &\iff \operatorname{Re} \operatorname{Sp} A < 0 \\
+				&\iff \forall \lambda \in \operatorname{Sp} A \cap i\mathbb{R}, \operatorname{mult}_{\chi_A}(\lambda) = \operatorname{dim} E_\lambda(A)
+\end{align}
 $$
 
 ## Caractérisation par la [[trace]] et le [[déterminant]] de la [[matrice]] d'un système différentiel **[[linéaire]]**

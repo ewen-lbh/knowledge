@@ -1,0 +1,1 @@
+Première composante dans la base $(1, i)$ du $\mathbb{R}$-espace vectoriel $\mathbb{C}$.

@@ -1,14 +1,9 @@
-# Intercorrélation
-
-Pour deux [[signaux à énergie finie]] $x$ et $y$:
+Pour deux [[signal|signaux]] $x$ et $y$ de même [[classes de signaux|classe]]
 
 $$
-R_{xy}(\tau) = \int_\mathbb{R} x(t) \bar y(t-\tau) \mathrm{d}
-t = \left\langle x(t), y(t-\tau)\right\rangle$$
+R_{xy}(\tau) = \left\langle x, y(\cdot-\tau)\right\rangle$$
+Avec $\langle \cdot, \cdot\cdot \rangle$ dépendant de la classe des signaux
 
-On fait un produit scalaire entre $x$ et tout les décalés de $y$ dans une fenêtre pour voir leur similitude
+## Du signal [[filtre|filtré]]
 
-## Propriétés
-
-- $R_x = x \ast \hat x$ avec $\hat x(t) = \bar x(-t)$ TODO c'est un tshetch pas un circonflexe
-- $\mathcal{F}[R_x(\tau)] = |\mathcal{F}[x]|^2$ (c'est la [[densité spectrale d'énergie]])
+Voir les [[relations de Wiener-Lee]]

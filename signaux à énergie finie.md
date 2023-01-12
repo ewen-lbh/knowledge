@@ -1,5 +1,3 @@
-# Signaux à énergie finie
-
 [[signal]] tel que son énergie est finie:
 
 $$
